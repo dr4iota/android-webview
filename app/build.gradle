@@ -3,13 +3,6 @@ plugins {
     id 'kotlin-android'
 }
 
-def props = new Properties()
-file("${rootDir}/local.properties").withInputStream { props.load(it) }
-
-def appId = props.getProperty("APP_ID", "com.example.simplewebapp")
-def baseUrl = props.getProperty("BASE_URL", "https://example.com")
-def appName = props.getProperty("APP_NAME", "Default App")
-
 android {
     namespace 'com.example.simplewebapp'
     compileSdk 35
@@ -18,19 +11,13 @@ android {
         jvmTarget = "1.8"
     }
 
-    buildFeatures {
-        buildConfig = true
-    }
-
     defaultConfig {
-        applicationId "${appId}"
+        applicationId "com.example.simplewebapp"
         minSdk 21
         targetSdk 34
         versionCode 1
         versionName "1.0"
 
-        buildConfigField "String", "BASE_URL", "\"${baseUrl}\""
-        buildConfigField "String", "APP_NAME", "\"${appName}\""
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 

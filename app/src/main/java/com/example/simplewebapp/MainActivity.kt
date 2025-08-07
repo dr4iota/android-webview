@@ -25,9 +25,7 @@ class MainActivity : AppCompatActivity() {
             domStorageEnabled = true
         }
 
-        val baseUrl = BuildConfig.BASE_URL
-        val appName = BuildConfig.APP_NAME
-
+        val baseUrl = getString(R.string.base_url)
         baseDomain = Uri.parse(baseUrl).host ?: ""
 
         webView.settings.javaScriptEnabled = true
@@ -46,7 +44,6 @@ class MainActivity : AppCompatActivity() {
         }
 
         webView.loadUrl(baseUrl)
-        title = appName
     }
 
     override fun onBackPressed() {
